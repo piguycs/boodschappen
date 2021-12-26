@@ -2,10 +2,19 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Head from "next/head";
 import shopStyles from "../styles/Shop.module.css";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { FormEvent, useState } from "react";
 
-const SearchShop = ({prevsearch}:{prevsearch:any}) => {
-  const [searchTerm, setST] = useState(prevsearch);
+const SearchShop = ({ prevsearch }: { prevsearch: any }) => {
+  const [searchTerm, setST] = useState(prevsearch ? prevsearch : "");
+  const router = useRouter();
+
+  const handleClick = (e:any) => {
+    e.preventDefault();
+    if (searchTerm !== "") {
+      router.push(`/shops/${searchTerm}`);
+    }
+  };
 
   return (
     <div>
@@ -17,7 +26,7 @@ const SearchShop = ({prevsearch}:{prevsearch:any}) => {
         />
       </Head>
       <h1 style={{ fontSize: 45 }}>Which store would you like to visit?</h1>
-      <div className={shopStyles.search}>
+      <form className={shopStyles.search} onSubmit={handleClick}>
         <input
           className={shopStyles.searchTerm}
           type="text"
@@ -26,11 +35,14 @@ const SearchShop = ({prevsearch}:{prevsearch:any}) => {
           onChange={(e) => setST(e.target.value)}
         />
         {searchTerm ? (
+          <>
           <Link href={`/shops/${searchTerm}`}>
             <button className={shopStyles.searchBTN}>Shop</button>
           </Link>
+          <button className={shopStyles.searchBTN} onClick={(e) => {e.preventDefault()}}>n/c</button>
+          </>
         ) : null}
-      </div>
+      </form>
     </div>
   );
 };

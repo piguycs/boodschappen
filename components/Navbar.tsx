@@ -22,13 +22,13 @@ const Navbar: NextPage = () => {
       {/* Towards the end of the navbar */}
       <ul className={navStyles.end}>
         <li>
-          <Link href="/">Profile</Link> 
+          <Link href="/auth">Profile</Link> 
         </li>
         <li>
-          <Link href="/">Sign In</Link> 
+          <Link href="/auth">Sign In</Link> 
         </li>
         <li>
-          <Link href="/shops">Sign Up</Link> 
+          <Link href="/auth">Sign Up</Link> 
         </li>
       </ul>
     </nav>
