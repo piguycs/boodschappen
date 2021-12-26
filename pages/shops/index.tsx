@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import SearchShop from "../../components/SearchShop";
 
-const Shops: NextPage = () => {
+function Shops() {
 
   return (
-    <SearchShop prevsearch={""} />
+    <SearchShop />
   );
 };
 

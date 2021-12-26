@@ -2,12 +2,12 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Head from "next/head";
 import shopStyles from "../styles/Shop.module.css";
-import { useRouter } from "next/router";
-import { FormEvent, useState } from "react";
+import { useRouter as nextrouter } from "next/router";
+import { useState } from "react";
 
-const SearchShop = ({ prevsearch }: { prevsearch: any }) => {
-  const [searchTerm, setST] = useState(prevsearch ? prevsearch : "");
-  const router = useRouter();
+function SearchShop() {
+  const [searchTerm, setST] = useState("");
+  const router = nextrouter();
 
   const handleClick = (e:any) => {
     e.preventDefault();
@@ -36,10 +36,17 @@ const SearchShop = ({ prevsearch }: { prevsearch: any }) => {
         />
         {searchTerm ? (
           <>
-          <Link href={`/shops/${searchTerm}`}>
-            <button className={shopStyles.searchBTN}>Shop</button>
-          </Link>
-          <button className={shopStyles.searchBTN} onClick={(e) => {e.preventDefault()}}>n/c</button>
+            <Link href={`/shops/${searchTerm}`} passHref>
+              <button className={shopStyles.searchBTN}>Shop</button>
+            </Link>
+            <button
+              className={shopStyles.searchBTN}
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              n/c
+            </button>
           </>
         ) : null}
       </form>

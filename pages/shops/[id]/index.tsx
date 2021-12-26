@@ -3,13 +3,13 @@ import { useRouter } from "next/router";
 import SearchShop from "../../../components/SearchShop";
 import Card from "../../../components/Card";
 
-const shops: NextPage = () => {
+function Shops() {
   const router = useRouter();
   const { id } = router.query;
 
   return (
     <>
-      <SearchShop prevsearch={id} />
+      <SearchShop />
       <h3>
         Search results for <span style={{ color: "#3cab54" }}>{id}</span>:
       </h3>
@@ -18,4 +18,4 @@ const shops: NextPage = () => {
   );
 };
 
-export default shops;
+export default Shops;
