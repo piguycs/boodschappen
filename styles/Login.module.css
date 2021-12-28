@@ -1,0 +1,51 @@
+.authcontainer {
+    background-color: rgb(255, 255, 255);
+    width: 25vw;
+    height: 60vh;
+    min-width: 400px;
+    min-height: 450px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 27px -4px;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.authcontainer h1 {
+    padding-bottom: 20px;
+}
+
+.authcontainer input {
+    width: 100%;
+    height: 30px;
+}
+
+.authcontainer a {
+    color: blue;
+    font-size: 14px;
+    align-self: flex-end;
+}
+
+.authcontainer a:hover {
+    text-decoration: underline;
+}
+
+.title {
+    align-self: center;
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    gap: 5px;
+}
+
+.buttons button {
+    width: 100%;
+}

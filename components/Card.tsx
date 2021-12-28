@@ -6,7 +6,7 @@ const Card: NextPage = () => {
   return (
     <div className={cardStyles.card}>
       <div className={cardStyles.container}>
-        <Image
+        <img
           src="https://media.indebuurt.nl/zoetermeer/2018/06/31170759/action-logo.png"
           width={192}
           height={192}

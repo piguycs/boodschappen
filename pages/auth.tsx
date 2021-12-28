@@ -1,7 +1,8 @@
 import { EmailAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebaseAuth";
-import { signout } from "../firebase/firebaseAuth";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+
+import Login from "../firebase/components/Login";
 
 const uiConfig = {
   signInFlow: "popup",
@@ -15,10 +16,9 @@ const uiConfig = {
 function authpage() {
   console.log(auth.currentUser)
   return (
-    <div style={{width: "50vw", height: "50vh"}}>
-      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
-      <button onClick={() => signout()}>Sign Out</button>
-    </div>
+    <>
+    <Login />    
+    </>
   );
 }
 

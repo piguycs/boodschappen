@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import Head from "next/head";
 import shopStyles from "../styles/Shop.module.css";
@@ -37,16 +36,15 @@ function SearchShop() {
         {searchTerm ? (
           <>
             <Link href={`/shops/${searchTerm}`} passHref>
-              <button className={shopStyles.searchBTN}>Shop</button>
+              <button className={shopStyles.searchBTN}>Search Shop</button>
             </Link>
-            <button
-              className={shopStyles.searchBTN}
-              onClick={(e) => {
-                e.preventDefault();
-              }}
-            >
-              n/c
-            </button>
+            <Link href={`/city/${searchTerm}`}>
+              <button
+                className={shopStyles.searchBTN}
+                >
+                Search City
+              </button>
+            </Link>
           </>
         ) : null}
       </form>
